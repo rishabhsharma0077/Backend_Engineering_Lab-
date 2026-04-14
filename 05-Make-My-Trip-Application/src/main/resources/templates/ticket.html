@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Get Ticket</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h3>Get Ticket Info</h3>
+    <form th:action="@{/get-ticket}" method="get">
+        Ticket Num: <input type="text" name="ticketnumber" required /> <br/>
+        <button type="submit">Get Ticket</button>
+    </form>
+
+    <hr />
+    <div th:if="${ticket != null}">
+        <table>
+            <tr>
+                <td>Name:</td>
+                <td><p th:text="${ticket.name}"/></td>
+            </tr>
+            <tr>
+                <td>From:</td>
+                <td><p th:text="${ticket.from}"/></td>
+            </tr>
+            <tr>
+                <td>To:</td>
+                <td><p th:text="${ticket.to}"/></td>
+            </tr>
+            <tr>
+                <td>DOJ:</td>
+                <td><p th:text="${ticket.doj}"/></td>
+            </tr>
+            <tr>
+                <td>Train Status:</td>
+                <td><p th:text="${ticket.status}"/></td>
+            </tr>
+            <tr>
+                <td>Cost:</td>
+                <td><p th:text="${ticket.cost}"/></td>
+            </tr>
+        </table>
+    </div>
+    <div th:if="${ticket == null}">
+        <p>No ticket found. Please enter a valid ticket number.</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,129 @@
+{
+	"openapi": "3.0.1",
+	"info": {
+		"title": "Ashokit Ticket Booking API",
+		"description": "This API is for managing ticket booking operations",
+		"version": "1.0.0"
+	},
+	"servers": [
+		{
+			"url": "http://localhost:9090",
+			"description": "Generated server url"
+		}
+	],
+	"paths": {
+		"/ticket": {
+			"post": {
+				"tags": [
+					"book-ticket-rest-controller"
+				],
+				"operationId": "bookTicket",
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/Passenger"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Ticket"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/ticket/{ticketNum}": {
+			"get": {
+				"tags": [
+					"book-ticket-rest-controller"
+				],
+				"operationId": "getTicket",
+				"parameters": [
+					{
+						"name": "ticketNum",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "integer",
+							"format": "int32"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Ticket"
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"components": {
+		"schemas": {
+			"Passenger": {
+				"type": "object",
+				"properties": {
+					"name": {
+						"type": "string"
+					},
+					"from": {
+						"type": "string"
+					},
+					"to": {
+						"type": "string"
+					},
+					"doj": {
+						"type": "string"
+					},
+					"trainNumber": {
+						"type": "string"
+					}
+				}
+			},
+			"Ticket": {
+				"type": "object",
+				"properties": {
+					"ticketNum": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"name": {
+						"type": "string"
+					},
+					"cost": {
+						"type": "number",
+						"format": "double"
+					},
+					"from": {
+						"type": "string"
+					},
+					"to": {
+						"type": "string"
+					},
+					"doj": {
+						"type": "string"
+					},
+					"status": {
+						"type": "string"
+					}
+				}
+			}
+		}
+	}
+}

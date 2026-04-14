@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Place Order</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="card shadow-lg">
+            <img src="https://images.unsplash.com/photo-1581090700227-1e8b90f208b7" class="card-img-top" alt="Order Image" style="height: 250px; object-fit: cover;">
+            <div class="card-body">
+                <h3 class="card-title text-center mb-4">Place Your Order</h3>
+                <form th:action="@{/orders/save}" method="post" th:object="${order}">
+
+                    <div class="form-group">
+                        <label for="user">User</label>
+                        <select class="form-control" name="user.id">
+                            <option th:each="user : ${users}" 
+                                    th:value="${user.id}" 
+                                    th:text="${user.name}"></option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="product">Product</label>
+                        <select class="form-control" name="product.id">
+                            <option th:each="product : ${products}" 
+                                    th:value="${product.id}" 
+                                    th:text="${product.name}"></option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="quantity">Quantity</label>
+                        <input type="number" class="form-control" name="quantity" placeholder="Enter quantity" th:field="*{quantity}" min="1">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block">Place Order</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
