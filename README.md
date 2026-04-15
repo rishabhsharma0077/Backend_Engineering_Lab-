@@ -79,6 +79,6 @@ to recruiters and interviewers.
 ---
 
 ## 👨‍💻 Author
-Sunny Kumar  
+Rishabh Sharma
 Entry-Level Java Developer  
 Java | Spring Boot | REST APIs
