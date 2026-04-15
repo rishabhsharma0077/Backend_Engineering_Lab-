@@ -60,7 +60,7 @@ Each folder represents an independent project with real-world use cases.
 
 ## ▶ How to Run Any Project
 1. Clone the repository  
-   git clone https://github.com/rishabhsharma0077/Mini-Project.git
+   git clone https://github.com/rishabhsharma0077/Backend_Engineering_lab
 
 2. Open the required project folder in IDE (IntelliJ / Eclipse)
 
